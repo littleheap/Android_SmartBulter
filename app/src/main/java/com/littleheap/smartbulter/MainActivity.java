@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     //初始化数据
-    private void initData(){
+    private void initData() {
         mTitle = new ArrayList<>();
         mTitle.add("服务管家");
         mTitle.add("微信精选");
@@ -59,8 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFragment.add(new PictureFragment());
         mFragment.add(new UserFragment());
     }
+
     //初始化View
-    private void initView(){
+    private void initView() {
         //浮动按钮
         fab_setting = (FloatingActionButton) findViewById(R.id.fab_setting);
         fab_setting.setOnClickListener(this);
@@ -80,10 +81,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onPageSelected(int position) {
-                Log.i("TAG","position:"+position);
-                if(position == 0){//识别到第一页位置时隐藏浮动按钮
+                Log.i("TAG", "position:" + position);
+                if (position == 0) {//识别到第一页位置时隐藏浮动按钮
                     fab_setting.setVisibility(View.GONE);
-                }else {
+                } else {
                     fab_setting.setVisibility(View.VISIBLE);
                 }
             }
@@ -101,11 +102,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public Fragment getItem(int position) {
                 return mFragment.get(position);
             }
+
             //返回item的个数
             @Override
             public int getCount() {
                 return mFragment.size();
             }
+
             //设置标题
             @Override
             public CharSequence getPageTitle(int position) {
@@ -118,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.fab_setting:
                 startActivity(new Intent(this, SettingActivity.class));
 
