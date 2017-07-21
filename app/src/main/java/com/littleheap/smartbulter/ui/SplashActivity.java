@@ -37,7 +37,7 @@ public class SplashActivity extends AppCompatActivity {
                     if (isFirst()) {
                         startActivity(new Intent(SplashActivity.this, GuideActivity.class));
                     } else {
-                        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                        startActivity(new Intent(SplashActivity.this, GuideActivity.class));
                     }
                     finish();
                     break;
@@ -57,7 +57,7 @@ public class SplashActivity extends AppCompatActivity {
     //初始化View
     private void initView() {
         //延时2秒（第一个参数为一个数值1001，第二个参数是延时时间长短）
-        handler.sendEmptyMessageDelayed(StaticClass.HANDLER_SPLASH, 3000);
+        handler.sendEmptyMessageDelayed(StaticClass.HANDLER_SPLASH, 2000);
 
         tv_splash = (TextView) findViewById(R.id.tv_splash);
         //设置字体
