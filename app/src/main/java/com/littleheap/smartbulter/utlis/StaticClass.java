@@ -12,4 +12,7 @@ public class StaticClass {
 
     //判断程序是否是第一次运行
     public static final String SHARE_IS_FIRST = "isFirst";
+
+    //Bugly ID
+    public static final String BUGLY_APP_ID = "12400c1bb4";
 }

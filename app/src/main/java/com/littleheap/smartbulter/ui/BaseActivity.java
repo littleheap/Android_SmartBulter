@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.littleheap.smartbulter.R;
+import com.tencent.bugly.crashreport.CrashReport;
 
 /**
  * Created by Administrator on 2017/7/19 0019.

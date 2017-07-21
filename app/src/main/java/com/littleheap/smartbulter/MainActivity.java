@@ -17,6 +17,7 @@ import com.littleheap.smartbulter.fragment.UserFragment;
 import com.littleheap.smartbulter.fragment.WechatFragment;
 import com.littleheap.smartbulter.ui.BaseActivity;
 import com.littleheap.smartbulter.ui.SettingActivity;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setElevation(0);
         initData();
         initView();
+
+        //Bugly异常检测
+        //CrashReport.testJavaCrash();
     }
 
     //初始化数据
