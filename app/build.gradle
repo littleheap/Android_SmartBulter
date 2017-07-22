@@ -36,4 +36,8 @@ dependencies {
     compile 'com.tencent.bugly:crashreport:latest.release'
     //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
     compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    //Bomb
+    compile 'cn.bmob.android:bmob-sdk:latest.release'
+    //Bomb兼容6.0
+    compile 'cn.bmob.android:http-legacy:1.0'
 }

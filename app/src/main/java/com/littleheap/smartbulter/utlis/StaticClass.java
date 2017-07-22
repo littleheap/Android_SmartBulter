@@ -15,4 +15,7 @@ public class StaticClass {
 
     //Bugly ID
     public static final String BUGLY_APP_ID = "12400c1bb4";
+
+    //Bmob ID
+    public static final String BMOB_APP_ID = "32005de8293598b402e8d3484a878029";
 }

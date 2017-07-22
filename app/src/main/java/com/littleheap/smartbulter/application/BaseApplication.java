@@ -5,6 +5,8 @@ import android.app.Application;
 import com.littleheap.smartbulter.utlis.StaticClass;
 import com.tencent.bugly.crashreport.CrashReport;
 
+import cn.bmob.v3.Bmob;
+
 /**
  * Created by Administrator on 2017/7/19 0019.
  */
@@ -18,5 +20,8 @@ public class BaseApplication extends Application {
 
         //Bugly异常检测SDK
         CrashReport.initCrashReport(getApplicationContext(), StaticClass.BUGLY_APP_ID, true);
+        //Bmob
+        Bmob.initialize(this,StaticClass.BMOB_APP_ID);
+
     }
 }
