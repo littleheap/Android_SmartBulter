@@ -14,14 +14,17 @@
         android:src="@mipmap/ic_launcher" />
 
     <EditText
+        android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="用户名" />
 
     <EditText
+        android:id="@+id/et_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="密码" />
+        android:hint="密码"
+        android:inputType="textPassword" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,6 +33,7 @@
         android:orientation="vertical">
 
         <CheckBox
+            android:id="@+id/keep_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -37,8 +41,8 @@
             android:textColor="#f13356" />
     </LinearLayout>
 
-
     <Button
+        android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -63,12 +67,13 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tv_forget"
+            android:paddingTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:text="忘记密码?"
             android:textColor="#f13356" />
     </LinearLayout>
-
 
 </LinearLayout>
