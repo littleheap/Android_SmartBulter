@@ -40,4 +40,6 @@ dependencies {
     compile 'cn.bmob.android:bmob-sdk:latest.release'
     //Bomb兼容6.0
     compile 'cn.bmob.android:http-legacy:1.0'
+    //CircleImageView圆形头像
+    compile 'de.hdodenhof:circleimageview:2.1.0'
 }

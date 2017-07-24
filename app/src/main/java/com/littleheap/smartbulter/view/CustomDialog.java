@@ -17,7 +17,7 @@ public class CustomDialog extends Dialog{
 
     //定义模板
     public CustomDialog(Context context, int layout, int style) {
-        this(context, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT, layout, style, Gravity.CENTER);
+        this(context, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT, layout, style, Gravity.CENTER);
     }
 
     //定义属性
