@@ -1,6 +1,9 @@
 package com.littleheap.smartbulter.fragment;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -8,6 +11,7 @@ import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +26,12 @@ import com.littleheap.smartbulter.R;
 import com.littleheap.smartbulter.entity.MyUser;
 import com.littleheap.smartbulter.ui.LoginActivity;
 import com.littleheap.smartbulter.utlis.L;
+import com.littleheap.smartbulter.utlis.ShareUtils;
+import com.littleheap.smartbulter.utlis.UtliTools;
 import com.littleheap.smartbulter.view.CustomDialog;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.net.URI;
 
@@ -81,8 +89,8 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         profile_image = view.findViewById(R.id.profile_image);
         profile_image.setOnClickListener(this);
 
-        WindowManager wm = (WindowManager) getContext()
-                .getSystemService(getContext().WINDOW_SERVICE);
+        //设置之前圆形头像
+        UtliTools.getImageFormShare(getActivity(), profile_image);
 
         //初始化Dialog
         dialog = new CustomDialog(getActivity(), R.layout.dialog_photo, R.style.Theme_dialog);
@@ -221,6 +229,15 @@ public class UserFragment extends Fragment implements View.OnClickListener {
                     startPhotoZoom(Uri.fromFile(tempFile));
                     break;
                 case RESULT_REQUEST_CODE:
+                    //可能点击舍弃
+                    if (data != null) {
+                        //拿到图片设置
+                        setImageView(data);
+                        //设置新图片，删除旧图片
+                        if (tempFile != null) {
+                            tempFile.delete();
+                        }
+                    }
                     break;
             }
         }
@@ -245,5 +262,20 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         //发送数据
         intent.putExtra("return-data", true);
         startActivityForResult(intent, RESULT_REQUEST_CODE);
+    }
+
+    //设置图片
+    private void setImageView(Intent data) {
+        Bundle bundle = data.getExtras();
+        if (bundle != null) {
+            Bitmap bitmap = bundle.getParcelable("data");
+            profile_image.setImageBitmap(bitmap);
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        UtliTools.putImageToShare(getActivity(), profile_image);
     }
 }
