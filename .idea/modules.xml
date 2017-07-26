@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SmartBulter.iml" filepath="$PROJECT_DIR$/SmartBulter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android_SmartBulter.iml" filepath="$PROJECT_DIR$/Android_SmartBulter.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
