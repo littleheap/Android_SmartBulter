@@ -53,7 +53,10 @@
         <activity
             android:name=".ui.RegisterActivity"
             android:label="注册" />
+        <!--忘记密码-->
         <activity android:name=".ui.ForgetPasswordActivity"></activity>
+        <!--快递-->
+        <activity android:name=".ui.CourierActivity"></activity>
     </application>
 
 </manifest>

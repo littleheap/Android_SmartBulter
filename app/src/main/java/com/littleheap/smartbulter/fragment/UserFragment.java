@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.littleheap.smartbulter.R;
 import com.littleheap.smartbulter.entity.MyUser;
+import com.littleheap.smartbulter.ui.CourierActivity;
 import com.littleheap.smartbulter.ui.LoginActivity;
 import com.littleheap.smartbulter.utlis.L;
 import com.littleheap.smartbulter.utlis.ShareUtils;
@@ -47,7 +48,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class UserFragment extends Fragment implements View.OnClickListener {
 
     private Button btn_exit_user, btn_update_ok, btn_camera, btn_picture, btn_cancel;
-    private TextView edit_user;
+    private TextView edit_user, tv_courier;
     private EditText et_username, et_sex, et_age, et_desc;
     private CircleImageView profile_image;
     private CustomDialog dialog;
@@ -114,6 +115,10 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         et_sex.setText(user.isSex() ? "男" : "女");
         et_age.setText(user.getAge() + "");
         et_desc.setText(user.getDesc());
+
+        //快递
+        tv_courier = view.findViewById(R.id.tv_courier);
+        tv_courier.setOnClickListener(this);
 
     }
 
@@ -190,6 +195,9 @@ public class UserFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.btn_picture:
                 toPicture();
+                break;
+            case R.id.tv_courier:
+                startActivity(new Intent(getActivity(),CourierActivity.class));
                 break;
         }
     }

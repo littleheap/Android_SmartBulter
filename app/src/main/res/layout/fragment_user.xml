@@ -131,6 +131,14 @@
             android:textColor="@android:color/white"
             android:visibility="gone" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:alpha="0.5"
+            android:background="@color/colorPrimary" />
+
         <TextView
             android:id="@+id/tv_courier"
             android:layout_width="match_parent"

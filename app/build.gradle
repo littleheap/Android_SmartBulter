@@ -12,7 +12,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             // 设置支持的SO库架构
-            abiFilters 'armeabi' , 'x86'//, 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+            abiFilters 'armeabi', 'x86'//, 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
     }
     buildTypes {
@@ -37,9 +37,17 @@ dependencies {
     //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
     compile 'com.tencent.bugly:nativecrashreport:latest.release'
     //Bomb
-    compile 'cn.bmob.android:bmob-sdk:latest.release'
+    compile('cn.bmob.android:bmob-sdk:latest.release'){
+        exclude group: 'io.reactivex'
+    }
     //Bomb兼容6.0
     compile 'cn.bmob.android:http-legacy:1.0'
     //CircleImageView圆形头像
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    //Rxvolley
+    compile('com.kymjs.rxvolley:rxvolley:1.1.4') {
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+        exclude group: 'com.squareup.okio'
+        exclude group: 'io.reactivex'
+    }
 }
