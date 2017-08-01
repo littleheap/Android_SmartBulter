@@ -13,7 +13,7 @@ import com.littleheap.smartbulter.R;
  * Description:自定义Dialog
  */
 
-public class CustomDialog extends Dialog{
+public class CustomDialog extends Dialog {
 
     //定义模板
     public CustomDialog(Context context, int layout, int style) {
@@ -21,7 +21,7 @@ public class CustomDialog extends Dialog{
     }
 
     //定义属性
-    public CustomDialog(Context context, int width, int height, int layout, int style, int gravity, int anim){
+    public CustomDialog(Context context, int width, int height, int layout, int style, int gravity, int anim) {
         super(context, style);
         //设置属性
         setContentView(layout);
@@ -36,6 +36,6 @@ public class CustomDialog extends Dialog{
 
     //实例
     public CustomDialog(Context context, int width, int height, int layout, int style, int gravity) {
-        this(context,width,height,layout,style,gravity,R.style.pop_anim_style);
+        this(context, width, height, layout, style, gravity, R.style.pop_anim_style);
     }
 }

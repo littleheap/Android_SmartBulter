@@ -54,9 +54,17 @@
             android:name=".ui.RegisterActivity"
             android:label="注册" />
         <!--忘记密码-->
-        <activity android:name=".ui.ForgetPasswordActivity"></activity>
+        <activity
+            android:name=".ui.ForgetPasswordActivity"
+            android:label="忘记密码" />
         <!--快递-->
-        <activity android:name=".ui.CourierActivity"></activity>
+        <activity
+            android:name=".ui.CourierActivity"
+            android:label="快递查询" />
+        <!--归属地-->
+        <activity
+            android:name=".ui.PhoneActivity"
+            android:label="归属地查询" />
     </application>
 
 </manifest>

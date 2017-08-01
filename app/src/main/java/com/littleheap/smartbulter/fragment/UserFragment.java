@@ -26,6 +26,7 @@ import com.littleheap.smartbulter.R;
 import com.littleheap.smartbulter.entity.MyUser;
 import com.littleheap.smartbulter.ui.CourierActivity;
 import com.littleheap.smartbulter.ui.LoginActivity;
+import com.littleheap.smartbulter.ui.PhoneActivity;
 import com.littleheap.smartbulter.utlis.L;
 import com.littleheap.smartbulter.utlis.ShareUtils;
 import com.littleheap.smartbulter.utlis.UtliTools;
@@ -48,7 +49,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class UserFragment extends Fragment implements View.OnClickListener {
 
     private Button btn_exit_user, btn_update_ok, btn_camera, btn_picture, btn_cancel;
-    private TextView edit_user, tv_courier;
+    private TextView edit_user, tv_courier, tv_phone;
     private EditText et_username, et_sex, et_age, et_desc;
     private CircleImageView profile_image;
     private CustomDialog dialog;
@@ -119,6 +120,10 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         //快递
         tv_courier = view.findViewById(R.id.tv_courier);
         tv_courier.setOnClickListener(this);
+
+        //归属地
+        tv_phone = view.findViewById(R.id.tv_phone);
+        tv_phone.setOnClickListener(this);
 
     }
 
@@ -197,7 +202,10 @@ public class UserFragment extends Fragment implements View.OnClickListener {
                 toPicture();
                 break;
             case R.id.tv_courier:
-                startActivity(new Intent(getActivity(),CourierActivity.class));
+                startActivity(new Intent(getActivity(), CourierActivity.class));
+                break;
+            case R.id.tv_phone:
+                startActivity(new Intent(getActivity(), PhoneActivity.class));
                 break;
         }
     }

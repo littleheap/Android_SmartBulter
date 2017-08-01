@@ -22,6 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -99,7 +100,7 @@ public class CourierActivity extends BaseActivity implements View.OnClickListene
         JSONObject jsonObject = new JSONObject(t);
         JSONObject jsonResult = jsonObject.getJSONObject("result");
         JSONArray jsonArray = jsonResult.getJSONArray("list");
-        for (int i = 0; i<jsonArray.length(); i++){
+        for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject json = (JSONObject) jsonArray.get(i);
             //数据整合
             MyCourier data = new MyCourier();
@@ -108,7 +109,8 @@ public class CourierActivity extends BaseActivity implements View.OnClickListene
             data.setZone(json.getString("datetime"));
             list.add(data);
         }
-        CourierAdapter adapter = new CourierAdapter(this,list);
+        Collections.reverse(list);
+        CourierAdapter adapter = new CourierAdapter(this, list);
         mListView.setAdapter(adapter);
     }
 }

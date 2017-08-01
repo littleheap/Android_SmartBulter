@@ -43,7 +43,7 @@
             android:paddingLeft="10dp"
             android:text="你的快件已经到达北京"
             android:textColor="@color/colorPrimary"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tv_zone"
@@ -54,14 +54,14 @@
             android:paddingLeft="10dp"
             android:text="北京"
             android:textColor="@color/colorAccent"
-            android:textSize="15sp"/>
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/tv_datetime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
-            android:text="2016-11-12"/>
+            android:text="2016-11-12" />
 
     </LinearLayout>
 

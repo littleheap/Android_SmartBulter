@@ -21,7 +21,7 @@ public class BaseApplication extends Application {
         //Bugly异常检测SDK
         CrashReport.initCrashReport(getApplicationContext(), StaticClass.BUGLY_APP_ID, true);
         //Bmob
-        Bmob.initialize(this,StaticClass.BMOB_APP_ID);
+        Bmob.initialize(this, StaticClass.BMOB_APP_ID);
 
     }
 }

@@ -19,10 +19,10 @@ import cn.bmob.v3.listener.SaveListener;
  * Created by Administrator on 2017/7/22 0022.
  */
 
-public class RegisterActivity extends BaseActivity implements View.OnClickListener{
+public class RegisterActivity extends BaseActivity implements View.OnClickListener {
 
     //输入框内容
-    EditText et_user,et_age,et_desc,et_pass,et_password,et_email;
+    EditText et_user, et_age, et_desc, et_pass, et_password, et_email;
     RadioGroup mRadioGroup;
     Button btnRegister;
     //性别
@@ -53,7 +53,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btnRegister:
                 //获取输入框数据
                 String name = et_user.getText().toString().trim();
@@ -64,26 +64,26 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 String email = et_email.getText().toString().trim();
 
                 //判断是否为空
-                if(!TextUtils.isEmpty(name) &
+                if (!TextUtils.isEmpty(name) &
                         !TextUtils.isEmpty(age) &
                         !TextUtils.isEmpty(pass) &
                         !TextUtils.isEmpty(password) &
-                        !TextUtils.isEmpty(email)){
+                        !TextUtils.isEmpty(email)) {
                     //判断两次密码输入是否一致
-                    if (pass.equals(password)){
+                    if (pass.equals(password)) {
                         //判断性别
                         mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                             @Override
                             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                                if (i == R.id.rb_boy){
+                                if (i == R.id.rb_boy) {
                                     sex = true;
-                                }else if (i == R.id.rb_girl){
+                                } else if (i == R.id.rb_girl) {
                                     sex = true;
                                 }
                             }
                         });
                         //判断简介是否为空
-                        if(TextUtils.isEmpty(desc)){
+                        if (TextUtils.isEmpty(desc)) {
                             desc = "这个人很懒，什么都没有留下";
                         }
                         //数据信息获取判定完毕，开始注册
@@ -98,19 +98,19 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                         user.signUp(new SaveListener<MyUser>() {
                             @Override
                             public void done(MyUser myUser, BmobException e) {
-                                if(e==null){
-                                    Toast.makeText(RegisterActivity.this,"注册成功",Toast.LENGTH_SHORT).show();
+                                if (e == null) {
+                                    Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
                                     finish();
-                                }else{
-                                    Toast.makeText(RegisterActivity.this,"注册失败：" + e.toString(),Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(RegisterActivity.this, "注册失败：" + e.toString(), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
-                    }else {
-                        Toast.makeText(this,"两次密码输入不一致",Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, "两次密码输入不一致", Toast.LENGTH_SHORT).show();
                     }
-                }else {
-                    Toast.makeText(this,"输入框不能为空",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "输入框不能为空", Toast.LENGTH_SHORT).show();
                 }
                 break;
 

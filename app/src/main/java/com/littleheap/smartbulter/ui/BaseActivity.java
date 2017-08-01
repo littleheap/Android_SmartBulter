@@ -18,7 +18,7 @@ import com.tencent.bugly.crashreport.CrashReport;
  * 2.统一的方法
  * 3.统一的接口
  */
-public class BaseActivity extends AppCompatActivity{
+public class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class BaseActivity extends AppCompatActivity{
     //菜单栏操作
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 //设置点击返回按钮销毁当前Activity
                 finish();
