@@ -28,15 +28,7 @@
             android:hint="输入" />
 
         <Button
-            android:id="@+id/btn_send1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/button_bg"
-            android:text="发送"
-            android:textColor="@android:color/white" />
-        <Button
-            android:id="@+id/btn_send2"
+            android:id="@+id/btn_send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
