@@ -28,5 +28,8 @@ public class StaticClass {
     //问答机器人key
     public static final String CHAT_LIST_KEY = "7a48539921338ef90866922b21e25f6d";
 
+    //微信精选key
+    public static final String WECHAT_KEY = "78f723dccf85aea324a3cf0daac97f35";
+
 
 }
