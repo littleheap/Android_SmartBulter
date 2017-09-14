@@ -1,11 +1,13 @@
 package com.littleheap.smartbulter.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.kymjs.rxvolley.RxVolley;
@@ -13,6 +15,7 @@ import com.kymjs.rxvolley.client.HttpCallback;
 import com.littleheap.smartbulter.R;
 import com.littleheap.smartbulter.adapter.WeChatAdapter;
 import com.littleheap.smartbulter.entity.MyWeChat;
+import com.littleheap.smartbulter.ui.WebViewActivity;
 import com.littleheap.smartbulter.utlis.L;
 import com.littleheap.smartbulter.utlis.StaticClass;
 
@@ -54,6 +57,18 @@ public class WechatFragment extends Fragment {
                 //Toast.makeText(getActivity(), t, Toast.LENGTH_SHORT).show();
                 L.i("wechat json:" + t);
                 parsingJson(t);
+            }
+        });
+
+        //点击事件
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                L.i("position:" + position);
+                Intent intent = new Intent(getActivity(), WebViewActivity.class);
+                intent.putExtra("title", mListTitle.get(position));
+                intent.putExtra("url", mListUrl.get(position));
+                startActivity(intent);
             }
         });
     }

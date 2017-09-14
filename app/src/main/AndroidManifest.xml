@@ -65,6 +65,10 @@
         <activity
             android:name=".ui.PhoneActivity"
             android:label="归属地查询" />
+        <!--新闻显示页-->
+        <activity
+            android:name=".ui.WebViewActivity"
+            android:label="新闻显示页" />
     </application>
 
 </manifest>
