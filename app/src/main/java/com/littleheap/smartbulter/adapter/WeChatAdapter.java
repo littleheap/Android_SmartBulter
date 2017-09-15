@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.littleheap.smartbulter.R;
 import com.littleheap.smartbulter.entity.MyWeChat;
 import com.littleheap.smartbulter.utlis.L;
+import com.littleheap.smartbulter.utlis.PicassoUtils;
 
 import java.util.List;
 
@@ -74,7 +75,7 @@ public class WeChatAdapter extends BaseAdapter {
         viewHolder.tv_source.setText(data.getSource());
         if (!TextUtils.isEmpty(data.getImgUrl())) {
             //加载图片
-//            PicassoUtils.loadImageViewSize(mContext, data.getImgUrl(), width / 3, 250, viewHolder.iv_img);
+            PicassoUtils.loadImageViewSize(mContext, data.getImgUrl(), width / 4, 200, viewHolder.iv_img);
         }
         return convertView;
     }
