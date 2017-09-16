@@ -31,5 +31,7 @@ public class StaticClass {
     //微信精选key
     public static final String WECHAT_KEY = "78f723dccf85aea324a3cf0daac97f35";
 
+    //妹子接口
+    public static final String GIRL_URL = "";
 
 }
