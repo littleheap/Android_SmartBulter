@@ -34,4 +34,7 @@ public class StaticClass {
     //妹子接口
     public static final String GIRL_URL = "";
 
+    //语音Key
+    public static final String VOICE_KEY = "583081c6";
+
 }
