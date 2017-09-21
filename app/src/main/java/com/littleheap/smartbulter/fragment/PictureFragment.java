@@ -61,13 +61,13 @@ public class PictureFragment extends Fragment {
     //初始化View
     private void findView(View view) {
 
-        mGridView = (GridView) view.findViewById(R.id.mGridView);
+        mGridView = view.findViewById(R.id.mGridView);
 
         //初始化提示框
         dialog = new CustomDialog(getActivity(), LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT, R.layout.dialog_girl,
                 R.style.Theme_dialog, Gravity.CENTER,R.style.pop_anim_style);
-        iv_img = (ImageView) dialog.findViewById(R.id.iv_img);
+        iv_img = dialog.findViewById(R.id.iv_img);
 
 //        String welfare = null;
 //        try {

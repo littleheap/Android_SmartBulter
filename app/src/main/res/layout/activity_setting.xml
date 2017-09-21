@@ -44,46 +44,46 @@
 
     </LinearLayout>
 
-    <!--短信提示-->
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:gravity="center_vertical"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:paddingLeft="15dp">-->
+    短信提示
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp">
 
-        <!--<LinearLayout-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:orientation="vertical">-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/text_setting_title_2"-->
-                <!--android:textColor="@color/colorPrimary"-->
-                <!--android:textSize="18sp" />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="短信提醒"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
 
-            <!--<TextView-->
-                <!--android:id="@+id/textView2"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="5dp"-->
-                <!--android:text="@string/text_setting_content_2"-->
-                <!--android:textColor="@color/color_black"-->
-                <!--android:textSize="14sp" />-->
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="开启之后会以崭新的方式接受短信"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
 
-        <!--</LinearLayout>-->
+        </LinearLayout>
 
-        <!--<Switch-->
-            <!--android:id="@+id/sw_sms"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginRight="15dp" />-->
+        <Switch
+            android:id="@+id/sw_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp" />
 
-    <!--</LinearLayout>-->
+    </LinearLayout>
 
     <!--&lt;!&ndash;检查版本&ndash;&gt;-->
     <!--<LinearLayout-->

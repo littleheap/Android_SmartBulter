@@ -92,6 +92,10 @@
         <activity
             android:name=".ui.WebViewActivity"
             android:label="新闻显示页" />
+        <!--短信监听服务-->
+        <service
+            android:name=".service.SmsService"
+            android:label="短息监听服务" />
     </application>
 
 </manifest>

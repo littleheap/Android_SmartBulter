@@ -1,17 +1,20 @@
 package com.littleheap.smartbulter.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Switch;
 
 import com.littleheap.smartbulter.R;
+import com.littleheap.smartbulter.service.SmsService;
 import com.littleheap.smartbulter.utlis.ShareUtils;
 
 public class SettingActivity extends BaseActivity implements View.OnClickListener {
     //语音播报
     private Switch sw_speak;
-
+    //短信提醒
+    private Switch sw_sms;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,15 +27,13 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
         sw_speak = (Switch) findViewById(R.id.sw_speak);
         sw_speak.setOnClickListener(this);
-
         boolean isSpeak = ShareUtils.getBoolean(this, "isSpeak", false);
         sw_speak.setChecked(isSpeak);
 
-//        sw_sms = (Switch) findViewById(R.id.sw_sms);
-//        sw_sms.setOnClickListener(this);
-//
-//        boolean isSms = ShareUtils.getBoolean(this, "isSms", false);
-//        sw_sms.setChecked(isSms);
+        sw_sms = (Switch) findViewById(R.id.sw_sms);
+        sw_sms.setOnClickListener(this);
+        boolean isSms = ShareUtils.getBoolean(this, "isSms", false);
+        sw_sms.setChecked(isSms);
 //
 //        tv_version = (TextView) findViewById(R.id.tv_version);
 //
@@ -70,17 +71,19 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 //保存状态
                 ShareUtils.putBoolean(this, "isSpeak", sw_speak.isChecked());
                 break;
-//            case R.id.sw_sms:
-//                //切换相反
-//                sw_sms.setSelected(!sw_sms.isSelected());
-//                //保存状态
-//                ShareUtils.putBoolean(this, "isSms", sw_sms.isChecked());
-//                if (sw_sms.isChecked()) {
-//                    startService(new Intent(this, SmsService.class));
-//                } else {
-//                    stopService(new Intent(this, SmsService.class));
-//                }
-//                break;
+            case R.id.sw_sms:
+                //切换相反
+                sw_sms.setSelected(!sw_sms.isSelected());
+                //保存状态
+                ShareUtils.putBoolean(this, "isSms", sw_sms.isChecked());
+                if (sw_sms.isChecked()) {
+                    //开启短息监听服务
+                    startService(new Intent(this, SmsService.class));
+                } else {
+                    //关闭短信监听服务
+                    stopService(new Intent(this, SmsService.class));
+                }
+                break;
 //            case R.id.ll_update:
 //                L.i("ll_update");
 //                /**
