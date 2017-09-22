@@ -1,20 +1,41 @@
 package com.littleheap.smartbulter.ui;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.kymjs.rxvolley.RxVolley;
+import com.kymjs.rxvolley.client.HttpCallback;
 import com.littleheap.smartbulter.R;
 import com.littleheap.smartbulter.service.SmsService;
+import com.littleheap.smartbulter.utlis.L;
 import com.littleheap.smartbulter.utlis.ShareUtils;
+import com.littleheap.smartbulter.utlis.StaticClass;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class SettingActivity extends BaseActivity implements View.OnClickListener {
     //语音播报
     private Switch sw_speak;
     //短信提醒
     private Switch sw_sms;
+    //检测更新
+    private LinearLayout ll_update;
+    private TextView tv_version;
+    private String versionName;
+    private int versionCode;
+    private String url;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,16 +55,16 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         sw_sms.setOnClickListener(this);
         boolean isSms = ShareUtils.getBoolean(this, "isSms", false);
         sw_sms.setChecked(isSms);
-//
-//        tv_version = (TextView) findViewById(R.id.tv_version);
-//
-//        try {
-//            getVersionNameCode();
-//            tv_version.setText(getString(R.string.text_test_version) + versionName);
-//        } catch (PackageManager.NameNotFoundException e) {
-//            tv_version.setText(getString(R.string.text_test_version) );
-//        }
-//
+
+        tv_version = (TextView) findViewById(R.id.tv_version);
+        tv_version.setOnClickListener(this);
+        try {
+            getVersionNameCode();
+            tv_version.setText("检测版本" + versionName);
+        } catch (PackageManager.NameNotFoundException e) {
+            tv_version.setText("检测失败");
+        }
+
 //        ll_scan = (LinearLayout) findViewById(R.id.ll_scan);
 //        ll_scan.setOnClickListener(this);
 //
@@ -84,22 +105,23 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                     stopService(new Intent(this, SmsService.class));
                 }
                 break;
-//            case R.id.ll_update:
-//                L.i("ll_update");
-//                /**
-//                 * 步骤:
-//                 * 1.请求服务器的配置文件，拿到code
-//                 * 2.比较
-//                 * 3.dialog提示
-//                 * 4.跳转到更新界面，并且把url传递过去
-//                 */
-//                RxVolley.get(StaticClass.CHECK_UPDATE_URL, new HttpCallback() {
-//                    @Override
-//                    public void onSuccess(String t) {
-//                        parsingJson(t);
-//                    }
-//                });
-//                break;
+            case R.id.tv_version:
+                L.i("ll_update");
+                /**
+                 * 步骤:
+                 * 1.请求服务器的配置文件，拿到code
+                 * 2.比较
+                 * 3.dialog提示
+                 * 4.跳转到更新界面，并且把url传递过去
+                 */
+                RxVolley.get(StaticClass.CHECK_UPDATE_URL, new HttpCallback() {
+                    @Override
+                    public void onSuccess(String t) {
+                        L.i(t);
+                        parsingJson(t);
+                    }
+                });
+                break;
 //            case R.id.ll_scan:
 //                L.i("ll_scan");
 //                //打开扫描界面扫描条形码或二维码
@@ -116,5 +138,48 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 //                startActivity(new Intent(this,AboutActivity.class));
 //                break;
         }
+    }
+
+    private void parsingJson(String t) {
+        try {
+            JSONObject jsonObject = new JSONObject(t);
+            int code = jsonObject.getInt("versionCode");
+            if(code > versionCode){
+                showUpdateDialog(jsonObject.getString("content"));
+            }else {
+                Toast.makeText(this, "当前是最新版本", Toast.LENGTH_SHORT).show();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //弹出升级提示
+    private void showUpdateDialog(String content) {
+        new AlertDialog.Builder(this)
+                .setTitle("有新版本啦！")
+                //content
+                .setMessage(content)
+                .setPositiveButton("更新", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(SettingActivity.this, UpdatActivity.class);
+                        intent.putExtra("url", url);
+                        startActivity(intent);
+                    }
+                }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //我什么都不做，也会执行dismis方法
+            }
+        }).show();
+    }
+
+    //获取版本号/Code
+    private void getVersionNameCode() throws PackageManager.NameNotFoundException {
+        PackageManager pm = getPackageManager();
+        PackageInfo info = pm.getPackageInfo(getPackageName(), 0);
+        versionName = info.versionName;
+        versionCode = info.versionCode;
     }
 }

@@ -96,6 +96,8 @@
         <service
             android:name=".service.SmsService"
             android:label="短息监听服务" />
+        <activity android:name=".ui.UpdatActivity"
+            android:label="下载更新"/>
     </application>
 
 </manifest>
