@@ -144,6 +144,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         try {
             JSONObject jsonObject = new JSONObject(t);
             int code = jsonObject.getInt("versionCode");
+            url = jsonObject.getString("url");
             if(code > versionCode){
                 showUpdateDialog(jsonObject.getString("content"));
             }else {
