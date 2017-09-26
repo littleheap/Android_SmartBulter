@@ -70,5 +70,6 @@ dependencies {
     compile files('libs/Sunflower.jar')
     //NumberProgressBar
     compile 'com.daimajia.numberprogressbar:library:1.2@aar'
-
+    //二维码
+    compile project(path: ':libzxing')
 }

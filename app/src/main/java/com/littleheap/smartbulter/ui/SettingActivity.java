@@ -20,6 +20,7 @@ import com.littleheap.smartbulter.service.SmsService;
 import com.littleheap.smartbulter.utlis.L;
 import com.littleheap.smartbulter.utlis.ShareUtils;
 import com.littleheap.smartbulter.utlis.StaticClass;
+import com.xys.libzxing.zxing.activity.CaptureActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,6 +36,16 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private String versionName;
     private int versionCode;
     private String url;
+    //扫一扫
+    private LinearLayout ll_scan;
+    //扫描的结果
+    private TextView tv_scan_result;
+    //生成二维码
+    private LinearLayout ll_qr_code;
+    //我的位置
+    private LinearLayout ll_my_location;
+    //关于软件
+    private LinearLayout ll_about;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,14 +76,14 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             tv_version.setText("检测失败");
         }
 
-//        ll_scan = (LinearLayout) findViewById(R.id.ll_scan);
-//        ll_scan.setOnClickListener(this);
-//
-//        tv_scan_result = (TextView) findViewById(R.id.tv_scan_result);
-//
-//        ll_qr_code = (LinearLayout) findViewById(R.id.ll_qr_code);
-//        ll_qr_code.setOnClickListener(this);
-//
+        ll_scan = (LinearLayout) findViewById(R.id.ll_scan);
+        ll_scan.setOnClickListener(this);
+
+        tv_scan_result = (TextView) findViewById(R.id.tv_scan_result);
+
+        ll_qr_code = (LinearLayout) findViewById(R.id.ll_qr_code);
+        ll_qr_code.setOnClickListener(this);
+
 //        ll_my_location = (LinearLayout) findViewById(R.id.ll_my_location);
 //        ll_my_location.setOnClickListener(this);
 //
@@ -122,15 +133,15 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                     }
                 });
                 break;
-//            case R.id.ll_scan:
-//                L.i("ll_scan");
-//                //打开扫描界面扫描条形码或二维码
-////                Intent openCameraIntent = new Intent(this, CaptureActivity.class);
-////                startActivityForResult(openCameraIntent, 0);
-//                break;
-//            case R.id.ll_qr_code:
-//                startActivity(new Intent(this, QrCodeActivity.class));
-//                break;
+            case R.id.ll_scan:
+                L.i("ll_scan");
+                //打开扫描界面扫描条形码或二维码
+                Intent openCameraIntent = new Intent(this, CaptureActivity.class);
+                startActivityForResult(openCameraIntent, 0);
+                break;
+            case R.id.ll_qr_code:
+                startActivity(new Intent(this, QrCodeActivity.class));
+                break;
 //            case R.id.ll_my_location:
 //                startActivity(new Intent(this,LocationActivity.class));
 //                break;
@@ -182,5 +193,15 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         PackageInfo info = pm.getPackageInfo(getPackageName(), 0);
         versionName = info.versionName;
         versionCode = info.versionCode;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            Bundle bundle = data.getExtras();
+            String scanResult = bundle.getString("result");
+            tv_scan_result.setText(scanResult);
+        }
     }
 }
