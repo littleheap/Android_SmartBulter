@@ -168,60 +168,60 @@
 
     </LinearLayout>
 
-    <!--&lt;!&ndash;我的位置&ndash;&gt;-->
-    <!--<LinearLayout-->
-        <!--android:id="@+id/ll_my_location"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:gravity="center_vertical"-->
-        <!--android:orientation="vertical"-->
-        <!--android:paddingLeft="15dp">-->
+    <!--我的位置-->
+    <LinearLayout
+        android:id="@+id/ll_my_location"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="15dp">
 
-        <!--<TextView-->
-            <!--android:id="@+id/textView"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/text_setting_title_6"-->
-            <!--android:textColor="@color/colorPrimary"-->
-            <!--android:textSize="18sp" />-->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的位置"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
 
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="5dp"-->
-            <!--android:text="@string/text_setting_content_6"-->
-            <!--android:textColor="@color/color_black"-->
-            <!--android:textSize="14sp" />-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="定位我的位置"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
 
-    <!--</LinearLayout>-->
+    </LinearLayout>
 
-    <!--&lt;!&ndash;关于软件&ndash;&gt;-->
-    <!--<LinearLayout-->
-        <!--android:id="@+id/ll_about"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:gravity="center_vertical"-->
-        <!--android:orientation="vertical"-->
-        <!--android:paddingLeft="15dp">-->
+    <!--关于软件-->
+    <LinearLayout
+        android:id="@+id/ll_about"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="15dp">
 
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/text_setting_title_7"-->
-            <!--android:textColor="@color/colorPrimary"-->
-            <!--android:textSize="18sp" />-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="关于软件"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
 
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="5dp"-->
-            <!--android:text="@string/text_setting_content_7"-->
-            <!--android:textColor="@color/color_black"-->
-            <!--android:textSize="14sp" />-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="查看关于软件的详细信息"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
 
-    <!--</LinearLayout>-->
+    </LinearLayout>
 
 
 </LinearLayout>

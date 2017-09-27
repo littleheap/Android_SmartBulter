@@ -84,14 +84,14 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         ll_qr_code = (LinearLayout) findViewById(R.id.ll_qr_code);
         ll_qr_code.setOnClickListener(this);
 
-//        ll_my_location = (LinearLayout) findViewById(R.id.ll_my_location);
-//        ll_my_location.setOnClickListener(this);
-//
-//        ll_about = (LinearLayout) findViewById(R.id.ll_about);
-//        ll_about.setOnClickListener(this);
-//
-//        ll_update = (LinearLayout) findViewById(R.id.ll_update);
-//        ll_update.setOnClickListener(this);
+        ll_my_location = (LinearLayout) findViewById(R.id.ll_my_location);
+        ll_my_location.setOnClickListener(this);
+
+        ll_about = (LinearLayout) findViewById(R.id.ll_about);
+        ll_about.setOnClickListener(this);
+
+        ll_update = (LinearLayout) findViewById(R.id.ll_update);
+        ll_update.setOnClickListener(this);
     }
 
     @Override
@@ -116,7 +116,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                     stopService(new Intent(this, SmsService.class));
                 }
                 break;
-            case R.id.tv_version:
+            case R.id.ll_update:
                 L.i("ll_update");
                 /**
                  * 步骤:
@@ -142,12 +142,12 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             case R.id.ll_qr_code:
                 startActivity(new Intent(this, QrCodeActivity.class));
                 break;
-//            case R.id.ll_my_location:
-//                startActivity(new Intent(this,LocationActivity.class));
-//                break;
-//            case R.id.ll_about:
-//                startActivity(new Intent(this,AboutActivity.class));
-//                break;
+            case R.id.ll_my_location:
+                startActivity(new Intent(this,LocationActivity.class));
+                break;
+            case R.id.ll_about:
+                startActivity(new Intent(this,AboutActivity.class));
+                break;
         }
     }
 

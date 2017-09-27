@@ -1,6 +1,8 @@
 package com.littleheap.smartbulter.utlis;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
@@ -51,6 +53,17 @@ public class UtliTools {
             //生成Bitmap
             Bitmap bitmap = BitmapFactory.decodeStream(byStream);
             profile_image.setImageBitmap(bitmap);
+        }
+    }
+
+    //获取版本号
+    public static String getVersion(Context mContext){
+        PackageManager pm = mContext.getPackageManager();
+        try {
+            PackageInfo info = pm.getPackageInfo(mContext.getPackageName(),0);
+            return info.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            return "未知";
         }
     }
 }

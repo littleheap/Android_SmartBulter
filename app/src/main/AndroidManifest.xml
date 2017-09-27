@@ -2,43 +2,42 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.littleheap.smartbulter">
 
-    <!--读取Log -->
+    <!-- 读取Log -->
     <uses-permission android:name="android.permission.READ_LOGS" />
-    <!--允许联网 -->
+    <!-- 允许联网 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->
+    <!-- 获取GSM（2g）、WCDMA（联通3g）等网络状态的信息 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--获取wifi网络状态的信息 -->
+    <!-- 获取wifi网络状态的信息 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
+    <!-- 保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <!--获取sd卡写的权限，用于文件上传和下载-->
+    <!-- 获取sd卡写的权限，用于文件上传和下载 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--允许读取手机状态 用于创建BmobInstallation-->
+    <!-- 允许读取手机状态 用于创建BmobInstallation -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--获取手机录音机使用权限，听写、识别、语义理解需要用到此权限 -->
+    <!-- 获取手机录音机使用权限，听写、识别、语义理解需要用到此权限 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <!--允许程序改变网络连接状态 -->
+    <!-- 允许程序改变网络连接状态 -->
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <!--读取联系人权限，上传联系人需要用到此权限 -->
+    <!-- 读取联系人权限，上传联系人需要用到此权限 -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <!--短信权限-->
+    <!-- 短信权限 -->
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
-    <!--窗口权限-->
+    <!-- 窗口权限 -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <!--百度地图权限-->
+    <!-- 百度地图权限 -->
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <!-- 这个权限用于进行网络定位-->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <!-- 这个权限用于访问GPS定位-->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <!-- SD卡读取权限，用户写入离线定位数据-->
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- SD卡读取权限，用户写入离线定位数据 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
     <application
         android:name=".application.BaseApplication"
@@ -76,31 +75,49 @@
         <activity
             android:name=".ui.RegisterActivity"
             android:label="注册" />
-        <!--忘记密码-->
+        <!-- 忘记密码 -->
         <activity
             android:name=".ui.ForgetPasswordActivity"
             android:label="忘记密码" />
-        <!--快递-->
+        <!-- 快递 -->
         <activity
             android:name=".ui.CourierActivity"
             android:label="快递查询" />
-        <!--归属地-->
+        <!-- 归属地 -->
         <activity
             android:name=".ui.PhoneActivity"
             android:label="归属地查询" />
-        <!--新闻显示页-->
+        <!-- 新闻显示页 -->
         <activity
             android:name=".ui.WebViewActivity"
             android:label="新闻显示页" />
-        <!--短信监听服务-->
+        <!-- 短信监听服务 -->
         <service
             android:name=".service.SmsService"
             android:label="短息监听服务" />
-        <activity android:name=".ui.UpdatActivity"
-            android:label="下载更新"/>
-        <!--二维码-->
-        <activity android:name=".ui.QrCodeActivity"
-            android:label="二维码"/>
+
+        <activity
+            android:name=".ui.UpdatActivity"
+            android:label="下载更新" />
+        <!-- 二维码 -->
+        <activity
+            android:name=".ui.QrCodeActivity"
+            android:label="二维码" />
+        <!-- 百度地图定位 -->
+        <activity
+            android:name=".ui.LocationActivity"
+            android:label="百度地图" />
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="ATyGpAk6UkDA2qAibyeiv9tx5PwXt2S4" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <activity android:name=".ui.AboutActivity"></activity>
     </application>
 
 </manifest>
